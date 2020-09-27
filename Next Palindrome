@@ -1,0 +1,14 @@
+def reverse(n: int) -> int:
+     return int(str(n))[::-1]
+     
+def is_palindrome(n: int) -> bool:
+     return n == reverse(n)
+     
+def next_palindrome(n: int) -> int:
+     n += 1
+     while not is_palindrome(n):
+          n += 1
+     return n
+     
+n = int(input())
+print(next_palindrome(n))
