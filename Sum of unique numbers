@@ -1,0 +1,14 @@
+def how_many(x, xs) -> int:
+     return xs.count(x)
+     
+def sum_bycount(xs: [int], n: int) -> int:
+     total = 0
+     for x in set(xs):
+          if how_many(x, xs) == n:
+               total += x
+     return total
+     
+def sum_unique(xs: [int]) -> int:
+     return sum_bycount(xs, 1)
+     
+     
