@@ -1,0 +1,8 @@
+# You are given string of 0s and 1s only. Find the minimum numbers of zeros that must be removed to produce a string with the largest occurrence of 1
+# Input => String
+# Output => Interger
+
+s = "000101110010100"
+s.strip('0').count('0')
+
+Output - 4
