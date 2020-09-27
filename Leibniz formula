@@ -1,0 +1,15 @@
+# Calculate pi / 4 taking n from user using Leibniz formula and find the error between your value and exact value of pi / 4 = 0.7853981633974483
+
+import sys
+
+def leibniz(n_terms: int) -> float:
+     sign = 1
+     quarterPi = 0
+     for denominator in range(1, 2 * n_terms + 1, 2):
+          quarterPi += sign * (1 / denominator)
+          sign = -1 * sign
+     return quarterPi
+     
+N = int(sys.argv[1])
+pi = 3.141592653589793
+print("Accuracy = ", abs(pi / 4 - leibniz(N)))
