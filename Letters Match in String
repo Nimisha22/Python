@@ -1,0 +1,18 @@
+Write a function that takes two strings and returns how many matches there are between the strings. A match is where the two strings have the same character at the same index. 
+
+Input: string 1, string 2
+Output:  Integer 
+
+Sample Input:  "common", "come" 
+Sample Output:  3
+
+--------------------------------------------------------
+Code
+
+def matches(s1, s2):
+    cnt = 0
+    k=min(len(s1), len(s2))
+    for i in range(k):
+        if s1[i] == s2[i]:
+            cnt += 1
+    return cnt
