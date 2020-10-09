@@ -1,0 +1,37 @@
+A positive integer d is said to be a factor of another positive integer N, when N is divided by d, the remainder obtained is zero. 
+For example, for number 12, there are 6 factors 1, 2, 3, 4, 6, 12. 
+
+Aliquot sum of a positive integer n is the sum of all proper divisors of n, that is, all divisors of n other than n itself.
+
+Let f(n) be the aliquot sum. Write a function which takes a positive integer as input and returns
+
+"Alpha"  if f(n) < n
+"Gamma" if f(n) == n and
+"Beta" if f(n) > n
+
+Input: Positive Integer
+Output: String
+
+Sample Input: 6
+Sample Output: Gamma (Factor of 6 are 1, 2, 3 and sum of them is equals to 6)
+
+------------------------------------
+Code 
+
+def aliquotSum(n):
+    sum1=1
+    for i in range(2,n//1):
+        if(n%i==0):
+            sum1=sum1+i
+    return sum1        
+
+def classify(n):
+    sum2=aliquotSum(n)
+    if sum2<n:
+        return "Alpha"
+    elif sum2==n:
+        return "Gamma"
+    elif sum2>n:
+        return "Beta"    
+        
+
