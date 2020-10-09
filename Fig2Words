@@ -1,0 +1,36 @@
+Write a function that converts a number to words. The function needs to handle only input that is up-to three digits.
+
+Input: Integer
+Output: String
+
+Examples:
+fig2words(1)  - "One"
+fig2words(38) - "Thirty eight"
+fig2word(200) - "Two hundred"
+fig2word(888) - "Eight hundred and eighty eight"
+
+Note:  Case is not important
+
+---------------------------------------------------------------------
+Code
+
+under_20 = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen',
+            'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen']
+
+tens = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']
+
+def fig2words(n: int) -> str:
+    num = n
+    if num < 20:
+        return under_20[num]
+    if num < 100:
+        return tens[(int)(num/10-2)] + (''if num % 10 ==0 else ' ' + under_20[num%10])
+    k = ''
+    k += under_20[(int)(num/100)] + ' Hundred'
+    num = num % 100
+    if(num == 0):
+        return k
+    k = k + ' and '
+    if num < 20:
+        return k + under_20[num]
+    return k + tens[(int)(num / 10 - 2)] + (""if num % 10 == 0 else" "+ under_20[num%10])    
