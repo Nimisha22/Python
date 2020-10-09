@@ -1,0 +1,22 @@
+Create a function that takes a number and return a string with the number in expanded notation.
+
+Examples 
+
+expand(13) - "10 + 3"
+expand(86) - "80 + 6"
+expand(17000000) - "10000000 + 7000000"
+expand(5325) - "5000 + 300 + 20 + 5"
+
+-----------------------------------------------------------------
+Code
+
+def expand(num):
+    count = 1
+    final = ''
+    while (num != 0):
+        rem = num % 10
+        num = num // 10
+        if (rem != 0):
+            final = str(rem * count) + ' + ' + final
+        count = count * 10
+    return final.rstrip(' + ')   
