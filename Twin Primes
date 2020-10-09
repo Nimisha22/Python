@@ -1,0 +1,51 @@
+Write a Program which returns a List containing all the Twin Primes between the given range.
+
+Note: 1 is not a prime number. 
+
+The return List should be in the format as shown below:
+
+Each twin primes number are kept in tuple ( ) and each pair of twin primes are separate by a comma (,).
+
+For the input values 1 and 20, output List should be like: [(3, 5), (5, 7), (11, 13), (17, 19)]
+
+Write the methods with the following specification:
+        1) If any of the given argument values are negative or zero, then return -1
+        2) If the start value is greater than or equal to the limit value,  then return -2
+        3) If the given input range doesn't contain any twin primes, then return -3
+        4) In all other cases return the List as specified above. 
+        
+----------------------------------------------------------------------------
+
+Code
+
+def isPrime(num):
+    if num == 0 or num == 1:
+        return False
+    for i in range(2, num):
+        if (num % i == 0):
+            return False
+    return True
+
+def twinPrimes(start, limit):
+    l=[]
+    if(start <= 0 or limit <= 0):
+        return -1
+    if(start >= limit):
+        return -2
+        
+    for i in range(start + 1, limit):
+        j = i + 2
+        if(isPrime(i) and isPrime(j)):
+            tup = (i, j)
+            l.append(tup)
+        
+            
+            
+    if (l == []):
+        return -3
+    else:
+        return l
+  
+    
+
+    
