@@ -1,0 +1,24 @@
+Given a number with an even number of digits, return a new number according to the rules below:
+
+* Split the number into groups of two digit numbers. If the number has an odd number of digits, return 'invalid'.
+* For each group of two digit numbers, concatenate the last digit to a string to the same number of times as the value of the first digit. 
+Return the result as an integer.
+
+Example
+look_and_say(3132) - 111222
+
+# By reading the number digit by digit, you get three '1' and three '2'.
+# Therefore, you put three ones and three twos together.
+# Remember to return an integer.
+
+------------------------------------------------------------------
+Code
+
+def look_and_say(n):
+    sn = str (n)
+    if len(sn) % 2 == 1:
+        return "invalid"
+    expand = []
+    for i in range(1, len(sn), 2):
+        expand.append(sn[i] * int(sn[i-1]))
+    return int("".join(expand)) 
