@@ -1,0 +1,33 @@
+A Pythagorean triad is three integers that can be the lengths of the sides of a right angled triangle. (3, 4, 5) is of course the most well known. 
+The perimeter of that triangle is 12.
+
+There are no other right angled triangle with 12 as the perimeter. But there are three right angled triangles, 
+(20, 48, 52), (24, 45, 51) and (30, 40, 50) which have the perimeter of 120.
+
+Note that we do not count (48, 20, 52) or (52, 20, 48) as different triangles. 
+You can assume that the standard form of a triad is one where the three sides are in ascending order.
+
+For one value of the perimeter below 1000 the number of triplets with that perimeter is maximum. Write a function to find that value.
+
+Signature: peri() -> int
+
+-------------------------------------------------------------------
+Code
+
+from functools import *
+from collections import *
+
+def peri() -> int:
+    final = []
+    for i in range(0, 450):
+        for j in range (i + 1, 450):
+            for k in range (j + 1, 450):
+                if i ** 2 + j ** 2 == k ** 2 :
+                    final.append([i, j, k])
+                    
+    sumList = []
+    for i in final:
+        sumList.append(sum(i))
+    sumlist = Counter(sumList)
+    
+    return (sumlist.most_common(1)[0][0])
