@@ -1,0 +1,14 @@
+Replace vowels with '$' and consonants woth '#' 
+
+
+def stringTansformation(array):
+    a ="AEIOU"
+    for ch in a:
+        array[0] = array[0].replace(ch,"$").replace(ch.lower(),"$")
+    b = "BCDFGHJKLMNPQRSTVWXYZ"
+    for ch in b:
+        array[1] = array[1].replace(ch,"#").replace(ch.lower(),"#")    
+    p = array[1]
+    q = array[2].upper()
+    return str(array[0]) + p + q
+        
