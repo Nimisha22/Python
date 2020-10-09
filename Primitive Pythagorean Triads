@@ -1,0 +1,31 @@
+In Pythagorean Triads question, (30, 40, 50) triad can be produced by multiplying all sides of (3, 4, 5) with 10. 
+Similarly (20, 48, 52) can be reduced to (5, 12, 13). Triads which cannot be reduced or derived from others are called primitive pythogoren triads. 
+(3, 4, 5), (5, 12, 13), (7, 24, 25) are primitive triads, for example.
+
+Write a function that generates all primitive pythogorean triads where the sides are all less than 100. 
+
+Signature: primitive_pyth() -> [(int, int, int)]
+
+Additional condition: All three ints less than 100
+
+Input: none
+Output: List of tuples
+
+---------------------------------------------------------
+COde
+
+def gcd(a, b):
+    if a == 0:
+        return b
+    return gcd(b % a, a)    
+
+def primitive_pyth() -> [(int, int, int)]:
+    final = []
+    for i in range(0, 100):
+       for j in range(i + 1, 100):
+           for k in range(j + 1, 100):
+               if i ** 2 + j ** 2 == k ** 2:
+                   x = gcd(i, j)
+                   if x == 1:
+                       final.append((i, j, k))
+    return final                   
