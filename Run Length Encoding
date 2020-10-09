@@ -1,0 +1,39 @@
+Implement a program which returns the compressed string of a given string
+
+Explanation
+Reduce the length of the input string by replacing more than two continuous occurrences of the same character by a number and the character.
+
+Input: String
+Output: String
+
+Sample Input : "aaa" 
+Sample Output:  "3a"
+
+Sample Input : "AAAABBBCCDAA" 
+Sample Output: "4A3BCCDAA".
+
+-----------------------------------------------------
+Code
+
+def compressString(s):
+    k = ""
+    b = s
+    count = 1
+    n = len(b)
+    for i in range(n):
+        if(i + 1 != n and b[i] == b[i + 1]):
+            count += 1
+            
+        elif(count >= 3):
+            k += str(count) + b[i]
+            count = 1
+            
+        else:
+            for j in range(count):
+                k += b[i]
+            count = 1
+            
+    if(count >= 3):
+        k += str(count) + b[i]
+        
+    return k
