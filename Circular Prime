@@ -1,0 +1,30 @@
+The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
+
+Write a function that takes n that returns True if n is a circular prime or False if not.
+
+Input: Integer 
+Output: Boolean value 
+
+Sample Input: 197 
+Sample Output: True
+
+------------------------------------------------------------
+Code
+
+def isCircularPrime(num):
+    n = str(num)
+    if(n == '1' or n == '0'):
+        return False
+    k = 2 * n
+    b = len(k) // 2
+    for i in range(b):
+        s = int(k[i : b + i])
+        if(Prime(s) != True):
+            return False
+    return True
+    
+def Prime(n):
+    for i in range(2, n // 2 + 1):
+        if (n % i == 0):
+            return False
+    return True
