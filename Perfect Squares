@@ -1,0 +1,24 @@
+Write a function that returns all the perfect squares below thousand that are expressible as the sum of a cube and a square. 
+
+For example, 10 ** 3 + 15 ** 2 = 1225 = 35 ** 2. Note that the example given is more than 1000.
+
+Your function should return a list of integers.
+
+Additional conditions: None
+
+Input: none
+Output: List
+
+-------------------------------------------------------------
+Code
+
+def qsqsq() -> [int]:
+    display = []
+    for i in range(0, 200):
+        for j in range(1, i):
+            for k in range(1, i):
+                if(i ** 2 == j ** 3 + k ** 2 and i ** 2 < 1000):
+                    display.append(i ** 2)
+    display = list(set(display))
+    display.sort()
+    return display
