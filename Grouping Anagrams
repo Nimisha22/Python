@@ -1,0 +1,26 @@
+from collections import defaultdict
+
+def lower(arr):
+    for i in range(len(arr)):
+        arr[i] = arr[i].lower()
+    return arr
+
+def sorting(arr):
+    return sorted(arr,key = len)
+
+def groupAnagrams(words):
+    words = sorting(words)
+    words = words[::-1]
+    words = lower(words)
+    words = sorting(words)
+    words = words[::-1]
+    groupedWords = defaultdict(list)
+
+    for word in words:
+        groupedWords["".join(sorted(word))].append(word)
+
+
+    k = []
+    for group in groupedWords.values():
+        k += [group]
+    return (k)
