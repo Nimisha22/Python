@@ -19,19 +19,19 @@ Sample Output: Gamma (Factor of 6 are 1, 2, 3 and sum of them is equals to 6)
 Code 
 
 def aliquotSum(n):
-    sum1=1
-    for i in range(2,n//1):
-        if(n%i==0):
-            sum1=sum1+i
+    sum1 = 1
+    for i in range(2, n // 1):
+        if(n % i == 0):
+            sum1 = sum1 + i
     return sum1        
 
 def classify(n):
-    sum2=aliquotSum(n)
-    if sum2<n:
+    sum2 = aliquotSum(n)
+    if sum2 < n:
         return "Alpha"
-    elif sum2==n:
+    elif sum2 == n:
         return "Gamma"
-    elif sum2>n:
+    elif sum2 > n:
         return "Beta"    
         
 
