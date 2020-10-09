@@ -1,0 +1,33 @@
+Write a function that produces a new string by selecting letters in a given string as per the following rule:
+
+The function takes a string and a starting integer START arguments.
+
+In the first step it visits the character at index START. Then it visits the next character: that is at START + 1. 
+In the next step it visits two characters after that; that is START + 3, then three characters after that: that is START + 6 and so on. 
+If the string ends it goes around to the beginning. It stops when 10 characters have been visited.
+
+Signature: pick10(s: str, n:int) -> str
+
+Additional condition: return string length is 10 characters
+
+Input: String, Int
+Output: String
+
+Sample Input: "ABC", 1        
+Sample Output: "BCBBCBBCBB"
+
+-------------------------------------------
+Code
+
+from math import *
+
+def pick10(s: str, n:int) -> str:
+    final = []
+    p = ceil(n + 55 // len(s))
+    s = s * p
+    index = n
+    for i in range(0, 10):
+        index += i
+        final.append(s[index])
+    final = "".join(final)
+    return fina
