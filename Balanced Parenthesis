@@ -1,0 +1,24 @@
+Write a function that groups a string into parentheses cluster. Each cluster should be balanced.
+
+Examples
+SplitParenthesis("()()()") - ["()", "()", "()"]
+SplitParenthesis("((()))") - ["((()))"]
+SplitParenthesis("((()))(())()()(()())") - ["((()))", "(())", "()", "()", "(()())"]
+SplitParenthesis("((())())(()(()()))") - ["((())())", "(()(()()))"]
+
+----------------------------------------------------------
+Code
+
+def SplitParenthesis(txt):
+    final = []
+    b = 0
+    for i in range (0, len(txt)):
+        if b == 0:
+            o = i
+        if txt[i] == "(":
+            b += 1
+        if txt[i] == ")":
+            b -= 1
+        if b == 0:
+            final.append(txt[o : i + 1])
+    return (final)        
