@@ -1,0 +1,30 @@
+Write a function that returns True if a given number is a special number or else it should return False. 
+A special number is a number if it is equal to the sum of the factorial of it's digits.
+
+Input: Integer
+Output: Integer 
+
+Sample Input: 145
+Sample Output: True
+
+-----------------------------------------------
+Code
+
+def IsSpecialNumber(n):
+    fact = 1
+    sum1 = 0
+    num = n
+    while(num > 0):
+        d = num % 10
+        for i in range(1,d):
+           fact = fact * i 
+        fact = fact * d
+        sum1 = sum1 + fact
+        fact = 1
+        num = num // 10
+        
+    if(n == sum1):
+        return True
+    else:
+        return False
+        
