@@ -1,1 +1,1 @@
-# Efficient, Readable and clean Python codes
+# Readable and clean Python codes
