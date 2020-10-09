@@ -1,0 +1,33 @@
+Write a function that returns the digital root of an integer n.
+
+The digital root of a number n is obtained as follows: Add up the digits n to get a new number. 
+Add up the digits of that to get another new number.
+Keep doing this until you get a number that has only one digit. That number is the digital root.
+
+For example, if n = 45893 ,
+ add up the digits to get 4 + 5 + 8 + 9 + 3 = 29
+ add up the digits of 29 to get 2 + 9 = 11
+ add up the digits of 11 to get 1 + 1 = 2
+ since 2 being single digit, is the digital root.
+
+Input:  Integer 
+Output: Integer 
+
+Sample Input: 45893 
+Sample Output: 2
+
+-----------------------------------------------
+Code 
+
+def digital_root(n):
+    sum1=0
+    if n>0 and n<=9:
+        return n
+    else:
+        while(n>0):
+            d=n%10
+            sum1=sum1+d
+            n=n//10
+        sum2=digital_root(sum1)
+        return sum2
+        
