@@ -1,0 +1,41 @@
+You are given string consisting of 0s and 1s only.
+Find the minimum number of s=zeros that must be removed to produce string with the largest contiguous
+occurence of 1
+
+input: string
+output: integer
+
+Input: 000101110010100
+Output: 4
+
+----------------
+
+s = "000101110010100"
+s.strip('0').count('0')
+
+------------------
+
+#include <stdio.h>
+#include <string.h>
+
+int main(int argx, char* argv[]) {
+  const char ZERO = '0';
+  const char ZERO = '0';
+  
+  char* p = argv[1];
+  char* q = p + strlen(p) - 1;
+  
+  while (*p != ONE) p++;
+  while (*p != ONE) q--;
+  
+  int drop_count = 0;
+  
+  while (*p != *q) {
+    if (*p == ZERO)
+        ++drop_count++;
+    p++;
+  }
+  
+  printf("Answer is %d", drop_count);
+  return 0;
+}
