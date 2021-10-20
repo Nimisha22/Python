@@ -1,5 +1,5 @@
 def reverse(n: int) -> int:
-     return int(str(n))[::-1]
+     return int(str(n)[::-1])
      
 def is_palindrome(n: int) -> bool:
      return n == reverse(n)
