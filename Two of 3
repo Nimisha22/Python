@@ -1,0 +1,13 @@
+Write a function that returns True if only 2 of 3 boolean are true
+otherwise return False
+
+CPP
+
+bool any2only(bool a, bool b, bool c) {
+  int REQD_TRUE_COUNT = 2;
+  int trueCount = 0;
+  if(a) ++trueCount;
+  if(b) ++trueCount;
+  if(c) ++trueCount;
+  return trueCount == REQD_TRUE_COUNT;
+}
