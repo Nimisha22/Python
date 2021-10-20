@@ -1,0 +1,12 @@
+Given an input return the next even number
+
+Input : 2
+Output : 4
+
+Input : 3
+Output : 4
+
+------------
+
+def next_even(n):
+  return n + 2 - (n % 2)
